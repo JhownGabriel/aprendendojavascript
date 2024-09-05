@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio3</title>
+    <style>
+        * {
+            text-align: center;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            transition: 500ms;
+        }
+        button:hover {
+            rotate: 360deg;
+            padding: 50px;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        var Antecessor, Sucessor, valor;
+
+        function desafio3() {
+          valor = Number(prompt("Escreva um valor inteiro qualquer: ")); 
+          Antecessor = valor - 1 ;
+          Sucessor = valor + 1;
+          alert("o valor é " + valor + " seu antecessor é " + Antecessor + " e seu sucessor é " + Sucessor);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="desafio3()">Antecessor e Sucessor</button>
+</body>
+</html>
