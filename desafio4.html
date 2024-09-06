@@ -11,7 +11,9 @@
             Nprod = prompt("Qual o nome o produto? ");
             preco = Number(prompt("Qual o valor do produto?"));
             dinheiro = Number(prompt("Quanto voce deu a pagar?"));
-            troco = preco - dinheiro;
+            let troco = dinheiro - preco;
+
+            alert("o " + Nprod + " custa " + preco + " e voce pagou " + dinheiro + " e o troco é de " + troco);
 
         }
     </script>

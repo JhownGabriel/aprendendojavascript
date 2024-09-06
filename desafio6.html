@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var celcius, kelvin, fahrenheit;
+
+        function converter() {
+            celsius = Number(prompt("escreva uma temperatura em graus celsius: "));
+            fahrenheit = (celsius * 9 / 5) + 32;
+            kelvin = celcius + 273.15;
+
+            document.getElementById("temperaturaescolhida").innerHTML = `a temperatura escolhida ${celsius}`;
+            document.getElementById("resultados").innerHTML =
+            `fahrenheit ${fahrenheit}<br>
+            kelvin ${kelvin}`;
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Conversor de Temperaturas</h1>
+    <button onclick="converter()">Converter</button>
+    <h1 id="temperaturaescolhida"></h1>
+    <p id="resultados"></p>
+</body>
+</html>

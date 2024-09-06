@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 5</title>
+    <script>
+        var km, hm, dam, dm, cm, mm, medida;
+
+        function conversor(){
+            medida = Number(prompt("Digite uma distancia em metros(m)"));
+            km = medida / 1000; 
+            hm = medida / 100;
+            dam = medida / 10;
+            dm = medida * 10;
+            cm = medida * 100;
+            mm = medida * 1000;
+
+            document.getElementById("medida").innerHTML = `A conversão de ${medida} metros em:`;
+            document.getElementById("resultados").innerHTML = 
+            `Quilômetros: ${km} km<br>
+            Hectômetros: ${hm} hm<br> 
+            Decâmetros: ${dam} dam<br>
+            Decímetros: ${dm} dm<br> 
+            Centímetros: ${cm} cm<br>
+            Milímetros: ${mm} mm`;
+        }
+    </script>
+</head>
+<body>
+    <h1>conversor de medidas</h1>
+    <button onclick="conversor()">Converter</button>
+    <p>clique no botao acima para converter</p>
+    <br>
+    <h1 id="medida"></h1>
+    <p id="resultados"></p>
+</body>
+</html>
