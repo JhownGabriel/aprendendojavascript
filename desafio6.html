@@ -10,9 +10,9 @@
         function converter() {
             celsius = Number(prompt("escreva uma temperatura em graus celsius: "));
             fahrenheit = (celsius * 9 / 5) + 32;
-            kelvin = celcius + 273.15;
+            kelvin = celsius + 273.15;
 
-            document.getElementById("temperaturaescolhida").innerHTML = `a temperatura escolhida ${celsius}`;
+            document.getElementById("temperaturaescolhida").innerHTML = `a temperatura escolhida ${celsius} graus`;
             document.getElementById("resultados").innerHTML =
             `fahrenheit ${fahrenheit}<br>
             kelvin ${kelvin}`;

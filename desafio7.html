@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const URL = `https://api.exchangerate-api.com/v4/latest/BRL`; // URL da API para obter a taxa de câmbio
+
+        // Função para atualizar a conversão em tempo real
+        async function atualizarConversao() {
+            const valorReal = parseFloat(document.getElementById('valorReal').value);
+            if (isNaN(valorReal) || valorReal <= 0) {
+                document.getElementById('resultado').innerText = 'Conversão: $0.00';
+                return;
+            }
+
+            try {
+                const response = await fetch(URL);
+                const data = await response.json();
+
+                if (data && data.rates && data.rates.USD) {
+                    const taxaDeCambio = data.rates.USD;
+                    const valorDolar = valorReal * taxaDeCambio;
+                    document.getElementById('resultado').innerText = `Conversão yenes: $${valorDolar.toFixed(2)}`;
+                } else {
+                    document.getElementById('resultado').innerText = 'Erro ao obter a taxa de câmbio.';
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                document.getElementById('resultado').innerText = 'Erro ao obter a taxa de câmbio.';
+            }
+        }
+    </script>
+    <h1>Conversão de Moeda</h1>
+    <label for="valorReal">Valor em Real (BRL):</label>
+    <input type="number" id="valorReal" oninput="atualizarConversao()" placeholder="Digite o valor em BRL">
+    <p id="resultado">Conversão: $0.00</p>
+</body>
+
+</html>
