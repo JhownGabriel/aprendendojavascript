@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        var nome, produto, preco, desc, resultado;
+        var nome, porcentagem, salario, produto, diferenca, resultado;
 
         function desconto(){
             nome = prompt("Qual o nome do funcionário: ");
@@ -16,13 +16,15 @@
 
             porcentagem = Number(prompt("O salario de " + nome + " vai ser reajustado em qual porcentagem?"));
 
-            reajuste = (porcentagem / 100) * 100;
+            reajuste = (porcentagem / 100) * ;
+
+            diferenca = salario / reajuste;
 
             resultado = salario + reajuste;
 
             document.getElementById("nomeaumento").innerHTML = `${nome} recebeu um aumento salarial!`;
             document.getElementById("textoprod").innerHTML = `O salario atual era R$ ${salario}`;
-            document.getElementById("precooriginal").innerHTML = `Com um aumento de ${porcentagem}%, salario vai aumentar R$ ${reajuste}.`;
+            document.getElementById("precooriginal").innerHTML = `Com um aumento de ${porcentagem}%, salario vai aumentar R$ ${diferenca}.`;
             document.getElementById("resultado").innerHTML = `E a partir daí, ${nome} vai passar a ganhar R$ ${resultado}.`;
         }
     </script>
