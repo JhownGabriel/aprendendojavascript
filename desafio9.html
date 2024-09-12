@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nome, produto, preco, desc, resultado;
+
+        function desconto(){
+            nome = prompt("Qual o nome do funcionário: ");
+
+            salario = Number(prompt("Qual o salario de " + nome));
+
+            porcentagem = Number(prompt("O salario de " + nome + " vai ser reajustado em qual porcentagem?"));
+
+            reajuste = (porcentagem / 100) * 100;
+
+            resultado = salario + reajuste;
+
+            document.getElementById("nomeaumento").innerHTML = `${nome} recebeu um aumento salarial!`;
+            document.getElementById("textoprod").innerHTML = `O salario atual era R$ ${salario}`;
+            document.getElementById("precooriginal").innerHTML = `Com um aumento de ${porcentagem}%, salario vai aumentar R$ ${reajuste}.`;
+            document.getElementById("resultado").innerHTML = `E a partir daí, ${nome} vai passar a ganhar R$ ${resultado}.`;
+        }
+    </script>
+    <h1>Reajuste Salarial</h1>
+    <button id="desconto" onclick="desconto()">Reajustar Salário</button>
+    <p>Clique no botão acima para iniciar</p>
+    <h1 id="nomeaumento"></h1>
+    <p id="textoprod"></p>
+    <p id="precooriginal"></p>
+    <p id="resultado"></p>
+</body>
+</html>

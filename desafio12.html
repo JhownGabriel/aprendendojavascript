@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <button onclick="alterar_preco()">Verificar</button>
+    <p id="precoantdps"></p>
+    <p id="valorsubiu"></p>
+    <p id="diferenca"></p>
+    <p id="variacao"></p>
+    <script>
+        var antes, atual, variacao;
+
+        function alterar_preco() {
+            antes = Number(prompt("Qual era o preço anterior do produto?"));
+
+            atual = Number(prompt("Qual era o preço atual do produto?"));
+
+            diferenca = atual - antes;
+
+            variacao = ((atual - antes) / 100) * 100;
+
+            if (antes < atual){
+                document.getElementById("precoantdps").innerHTML = `O produto custava R$ ${antes} e agora custa R$ ${atual}.`;
+                document.getElementById("valorsubiu").innerHTML = `O valor do produto subiu`;
+                document.getElementById("diferenca").innerHTML = `O preço subiu R$ ${diferenca} em relação ao preço anterior.`;
+                document.getElementById("variacao").innerHTML = `Uma variação de ${variacao}% para cima.`;
+            } else {
+                document.getElementById("precoantdps").innerHTML = `O produto custava R$ ${antes} e agora custa R$ ${atual}.`;
+                document.getElementById("valorsubiu").innerHTML = `O valor do produto caiu`;
+                document.getElementById("diferenca").innerHTML = `O preço caiu R$ ${diferenca} em relação ao preço anterior.`;
+                document.getElementById("variacao").innerHTML = `Uma variação de ${variacao}% para baixo.`;
+            }
+        }
+    </script>
+</body>
+</html>

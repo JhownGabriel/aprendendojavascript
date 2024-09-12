@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Situação do aluno</h1>
+    <button onclick="media()">Entrar com as notas</button>
+    <p>Clique no botão acima para informar as notas do aluno</p>
+    <h1 id="analise"></h1>
+    <p id="suamedia"></p>
+    <p id="situacao"></p>
+    <script>
+        var nome ,n1 , n2, media;
+
+        function media() {
+
+            nome = prompt("Qual é o nome do aluno?");
+
+            n1 = Number(prompt("Primeira nota de " + nome));
+
+            n2 = Number(prompt("Segunda nota de " + nome));
+
+            media = (n1 + n2) / 2;
+
+            if (media >= 5) {
+                document.getElementById("analise").innerHTML = `Analisando a situação de ` + nome;
+                document.getElementById("suamedia").innerHTML = `Com as notas 8,5 e 5, a media é ${media}`;
+                document.getElementById("situacao").innerHTML = `Com media acima de 6,0, o aluno esta APROVADO`;
+            } else if (media <= 5 && media >= 3) {
+                document.getElementById("analise").innerHTML = `Analisando a situação de ` + nome;
+                document.getElementById("suamedia").innerHTML = `Com as notas 8,5 e 5, a media é ${media}`;
+                document.getElementById("situacao").innerHTML = `Com media entre 3,0 e 6,0, o aluno esta RECUPERAÇÃO`;
+            } else {
+                document.getElementById("analise").innerHTML = `Analisando a situação de ` + nome;
+                document.getElementById("suamedia").innerHTML = `Com as notas 2,5 e 3, a media é ${media}`;
+                document.getElementById("situacao").innerHTML = `Com media abaixo de 3,0, o aluno esta REPROVADO`;
+            }
+        }
+    </script>
+</body>
+</html>

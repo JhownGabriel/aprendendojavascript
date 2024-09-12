@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Ano Bissexto</h1>
+    <button onclick="anobissexto()">Verificar</button>
+    <p id="container"></p>
+    <script>
+        var ano;
+
+        function anobissexto() {
+
+            ano = Number(prompt("Qual o ano?"));
+            if(ano % 4 == 0){
+                document.getElementById("container").innerHTML = `O ano é bissexto😃`;
+            } else {
+                document.getElementById("container").innerHTML = `O ano não é bissexto😡`;
+            }
+        }
+    </script>
+</body>
+</html>
