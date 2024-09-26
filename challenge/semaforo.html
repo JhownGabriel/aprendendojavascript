@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #fundo{
+            background-color: black;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.479);
+            height: 700px;
+            width: 400px;
+            border-radius: 20px;
+            margin: 10px auto 0;
+            border: 5px solid rgba(214, 214, 214, 0.979);
+        }
+        #red, #yellow, #green{
+            border: 2px solid rgba(145, 145, 145, 0.979);
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
+            margin: 10px auto 0;
+        }
+        #red {
+            background-color: rgb(65, 0, 0);
+        }
+        #yellow{
+            background-color: rgb(59, 59, 0);
+        }
+        #green{
+            background-color: rgb(0, 56, 0);
+        }
+    </style>
+    <script>
+        function red(){
+            document.getElementById('vermelho').addEventListener('click', function() {
+                const vermelho = document.getElementById('red');
+                if (vermelho.style.backgroundColor === 'red') {
+                    vermelho.style.backgroundColor = 'rgb(65, 0, 0)'; // Cor original
+                } else {
+                    vermelho.style.backgroundColor = 'red'; // Muda para vermelho
+                }
+            });
+        }
+        function yellow(){
+            document.getElementById('amarelo').addEventListener('click', function() {
+                const amarelo = document.getElementById('yellow');
+                if (amarelo.style.backgroundColor === 'yellow') {
+                    amarelo.style.backgroundColor = 'rgb(59, 59, 0)'; // Cor original
+                } else {
+                    amarelo.style.backgroundColor = 'yellow'; // Muda para vermelho
+                }
+            });
+        }
+        function green(){
+            document.getElementById('verde').addEventListener('click', function() {
+                const verde = document.getElementById('green');
+                if (verde.style.backgroundColor === 'green') {
+                    verde.style.backgroundColor = 'rgb(0, 56, 0)'; // Cor original
+                } else {
+                    verde.style.backgroundColor = 'green'; // Muda para vermelho
+                }
+            });
+        }
+
+        window.onload = setup;
+    </script>
+</head>
+<body>
+    <div id="fundo">
+        <div id="red"></div>
+        <div id="yellow"></div>
+        <div id="green"></div>
+    </div>
+    <button id="vermelho" onclick="red()" ondblclick="">vermelho</button>
+    <button id="amarelo" onclick="yellow()" ondblclick="">amarelo</button>
+    <button id="verde" onclick="green()" ondblclick="">verde</button>
+    <button id="auto" onclick="" ondblclick="">automatico</button>
+</body>
+</html>

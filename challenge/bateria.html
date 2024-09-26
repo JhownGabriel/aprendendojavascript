@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(img_qualqueroutracoisa/drums-7751985.jpg);
+            background-color: #cccccc;
+            height: 700px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        h1 {
+            color: yellow;
+            text-shadow: 0px 0px 10px black;
+            font-size: 100px;
+        }
+        button {
+            margin: 10px;
+            border: 1px solid white;
+            padding: 15px;
+            background-color: black;
+            color: white;
+            font-size: 100px;
+            opacity: 0.8;
+        }
+
+    </style>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'd') { // Verifica se a tecla pressionada é 'Enter'
+                const som = document.getElementById('meuSom');
+                som.currentTime = 0; // Reinicia o som
+                som.play(); // Reproduz o som
+            }
+            if (event.key === 'f') { // Verifica se a tecla pressionada é 'Escape'
+                const som = document.getElementById('meuSom1');
+                som.currentTime = 0; // Reinicia o som
+                som.play(); // Reproduz o som
+            }
+            if (event.key === 'g') { // Verifica se a tecla pressionada é 'Escape'
+                const som = document.getElementById('meuSom2');
+                som.currentTime = 0; // Reinicia o som
+                som.play(); // Reproduz o som
+            }
+            if (event.key === 'h') { // Verifica se a tecla pressionada é 'Escape'
+                const som = document.getElementById('meuSom3');
+                som.currentTime = 0; // Reinicia o som
+                som.play(); // Reproduz o som
+            }
+            if (event.key === 'j') { // Verifica se a tecla pressionada é 'Escape'
+                const som = document.getElementById('meuSom4');
+                som.currentTime = 0; // Reinicia o som
+                som.play(); // Reproduz o som
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Drum Kit</h1>
+    <button>D<audio id="meuSom" src="img_qualqueroutracoisa/crash.mp3"></audio></button>
+    <button>F<audio id="meuSom1" src="img_qualqueroutracoisa/drumbeat.mp3"></audio></button>
+    <button>G<audio id="meuSom2" src="img_qualqueroutracoisa/snare.mp3"></audio></button>
+    <button>H<audio id="meuSom3" src="img_qualqueroutracoisa/soda.mp3"></audio></button>
+    <button>J<audio id="meuSom4" src="img_qualqueroutracoisa/tom.mp3"></audio></button>
+</body>
+</html>
