@@ -32,6 +32,25 @@
         }
     </style>
     <script>
+        const boxes = document.getElementById('red');
+        const startButton = document.getElementById('auto');
+        const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f', '#9b59b6'];
+        let currentColorIndex = 0;
+        let interval;
+
+        function changeColors() {
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            boxes.forEach((box) => {
+                box.style.backgroundColor = colors[currentColorIndex];
+            });
+        }
+
+        auto.addEventListener('click', () => {
+            if (!interval) { // Inicia a transição apenas se não estiver em andamento
+                interval = setInterval(changeColors, 2000);
+            }
+        });
+
         function red(){
             document.getElementById('vermelho').addEventListener('click', function() {
                 const vermelho = document.getElementById('red');
@@ -63,6 +82,8 @@
             });
         }
 
+        
+            
         window.onload = setup;
     </script>
 </head>
@@ -72,9 +93,9 @@
         <div id="yellow"></div>
         <div id="green"></div>
     </div>
-    <button id="vermelho" onclick="red()" ondblclick="">vermelho</button>
-    <button id="amarelo" onclick="yellow()" ondblclick="">amarelo</button>
-    <button id="verde" onclick="green()" ondblclick="">verde</button>
-    <button id="auto" onclick="" ondblclick="">automatico</button>
+    <button id="vermelho" onclick="red()">vermelho</button>
+    <button id="amarelo" onclick="yellow()">amarelo</button>
+    <button id="verde" onclick="green()">verde</button>
+    <button id="auto" onclick="auto()">automatico</button>
 </body>
 </html>
