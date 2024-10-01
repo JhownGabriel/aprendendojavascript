@@ -32,25 +32,6 @@
         }
     </style>
     <script>
-        const boxes = document.getElementById('red');
-        const startButton = document.getElementById('auto');
-        const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f', '#9b59b6'];
-        let currentColorIndex = 0;
-        let interval;
-
-        function changeColors() {
-            currentColorIndex = (currentColorIndex + 1) % colors.length;
-            boxes.forEach((box) => {
-                box.style.backgroundColor = colors[currentColorIndex];
-            });
-        }
-
-        auto.addEventListener('click', () => {
-            if (!interval) { // Inicia a transição apenas se não estiver em andamento
-                interval = setInterval(changeColors, 2000);
-            }
-        });
-
         function red(){
             document.getElementById('vermelho').addEventListener('click', function() {
                 const vermelho = document.getElementById('red');
@@ -80,6 +61,15 @@
                     verde.style.backgroundColor = 'green'; // Muda para vermelho
                 }
             });
+        }
+        function auto(){
+            if (intervaloAtual) {
+                clearInterval(intervaloAtual);
+            }
+
+            intervaloAtual = setInterval(() => {
+                document.getElementById("")
+            })
         }
 
         
