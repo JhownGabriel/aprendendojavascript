@@ -22,13 +22,13 @@
             margin: 10px auto 0;
         }
         #red {
-            background-color: rgb(65, 0, 0);
+            background-color: #410000;
         }
         #yellow{
-            background-color: rgb(59, 59, 0);
+            background-color: #3b3b00;
         }
         #green{
-            background-color: rgb(0, 56, 0);
+            background-color: #003800;
         }
     </style>
     <script>
@@ -63,21 +63,108 @@
             });
         }
         function auto(){
-            if (intervaloAtual) {
-                clearInterval(intervaloAtual);
-            }
+            var redLight = document.getElementById('red');
+            var yellowLight = document.getElementById('yellow');
+            var greenLight = document.getElementById('green');
 
-            intervaloAtual = setInterval(() => {
-                document.getElementById("")
-            })
+            var redButton = document.getElementById('vermelho');
+            var yellowButton = document.getElementById('amarelo');
+            var greenButton = document.getElementById('verde');
+
+            //display
+            var timerDisplay = document.getElementById('display');
+            timerDisplay.style.display = 'flex';
+
+            //Time
+            const redTime = 5000;
+            const yellowTime = 5000;
+            const greenTime = 5000;
+
+            let indexLight = 0;  // 0: red, 1: yellow, 2: green
+            let timeRemaining = 0; // tempo restante para a luz atual
+            let timerInterval; // intervalo do temporizador
+
+        function changeLight(){
+            
+            //desligar luzes
+            redLight.style.backgroundColor = '#410000';
+            yellowLight.style.backgroundColor = '#3b3b00';
+            greenLight.style.backgroundColor = '#003800';
+
+            //desligar botoes
+            redButton.style.backgroundColor = '#410000';
+            redButton.style.scale = '1.0';
+
+            yellowButton.style.backgroundColor = '#3b3b00';
+            yellowButton.style.scale = '1.0';
+
+            greenButton.style.backgroundColor = '#003800';
+            greenButton.style.scale = '1.0';
+            
+            //Condições Luzes e Botões
+            if(indexLight === 0){    //red
+                redLight.style.backgroundColor = '#f00';
+                redButton.style.backgroundColor = '#f00';
+                redButton.style.scale = '1.1';
+                indexLight = 0;
+
+                startTimer(redTime, () => {
+                    indexLight = 1;
+                    changeLight();
+                });
+            }else if(indexLight === 1){
+                    yellowLight.style.backgroundColor = '#ff0';
+                    yellowButton.style.backgroundColor = '#ff0';
+                    yellowButton.style.scale = '1.1';
+                    indexLight = 1;
+
+                    startTimer(yellowTime, () => {
+                        indexLight = 2;
+                        changeLight();
+                    });
+                }
+            else{
+                greenLight.style.backgroundColor = '#0f0';
+                greenButton.style.scale = '1.1';
+                greenButton.style.backgroundColor = '#0f0';
+                indexLight = 2;
+
+                startTimer(greenTime, () => {
+                    indexLight = 0;
+                    changeLight();
+                });
+            }
+        }
+    
+        //função do TimeDisplay
+        function startTimer(duration, callback){
+            clearInterval(timerInterval);  //limpa qualquer intervalo anterior
+            timeRemaining = duration / 1000;
+            timerDisplay.innerText = `${timeRemaining}`;
+
+            //intervalo de tempo
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                timerDisplay.innerText = `${timeRemaining}`;
+            
+                if(timeRemaining <= 0){
+                    clearInterval(timerInterval);
+                    callback();
+                }
+            }, 1000)
+
         }
 
+        //inicia o semaforo
+        changeLight();
+    }
         
             
         window.onload = setup;
     </script>
 </head>
 <body>
+    <div id="display"><p>00</p></div>
     <div id="fundo">
         <div id="red"></div>
         <div id="yellow"></div>

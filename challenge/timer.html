@@ -12,13 +12,14 @@
         body{
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;
-            background-image: url(img_qualqueroutracoisa/fundoshow.jpeg);
-            background-color: #cccccc;
-            height: 700px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
             position: relative;
+        }
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
         }
         h2 {
             font-size: 50px;
@@ -28,13 +29,18 @@
             font-size: 20px;
         }
         .tempo {
-            background-color: black;
-            opacity: 0.5;
+            background: rgb(0,0,0);
+            background: linear-gradient(39deg, rgba(0,0,0,0.5158438375350141) 0%, rgba(255,255,255,1) 25%, rgba(116,116,116,1) 50%, rgba(82,82,82,1) 75%, rgba(255,255,255,0.4822303921568627) 100%);
+            opacity: 0.8;
             width: 50%;
+            padding: 30px;
             border-radius: 10px;
             margin-left: auto;
             margin-right: auto;
             gap: 10px;
+        }
+        #timer {
+            text-shadow: 0px 0px 10px white;
         }
         table tr td p{
             font-size: 30px;
@@ -46,6 +52,7 @@
             color: black;
             padding: 10px;
             font-size: 15px;
+            cursor: pointer;
         }
     </style>
     <script>
@@ -56,8 +63,8 @@
         const formattime = (time) => {
             const days = Math.floor(time / 86400000);
             const hours = Math.floor(time / 360000);
-            const minutes = Math.floor(time / 360000) / 6000;
-            const seconds = Math.floor(time / 6000) / 100;
+            const minutes = Math.floor((time % 360000) / 6000);
+            const seconds = Math.floor((time % 6000) / 100);
 
             return `${days.toString().padStart(2, '0')}:
                     ${hours.toString().padStart(2, '0')}:
@@ -66,25 +73,46 @@
         }
 
         const toggleTimer = () => {
-            const button = document.getElementById('power');
+            const button = document.getElementById('ativar');
             const action = document.getElementById('action');
+
+            clearInterval(intervalid);
+
+            if (action == 'start' || action == 'continue') {
+                intervalid = setInterval(() => {
+                    timer += 1;
+                    setTimer(time);
+                }, 10);
+            }
         }
+
+        const setTimer = (time) => {
+            timerEl.innerText = formattime(time);
+        }
+
+        document.getElementById('ativar').addEventListener('click', toggleTimer);
     </script> 
 </head>
 <body>
+    <video autoplay muted loop id="myVideo">
+        <source src="./img_qualqueroutracoisa/fundoneve.mp4" type="video/mp4">
+    </video>
+
     <h1>LIVE</h1>
     <p>Em breve</p>
 
     <div class="tempo">
         <h2 id="timer">
-            00 00 00 00
+            00:00:00:00
         </h2>
         <h2 id="tempoescrito">
             dias horas minutos segundos
         </h2>
     </div>
 
-    <button id="ativar">Cadastre-se</button>
-
+    <div id="actions">
+        <button id="ativar" action="start">Cadastre-se</button>
+    </div>
+    
 </body>
 </html>
